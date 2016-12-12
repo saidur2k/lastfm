@@ -7,8 +7,5 @@ mb_http_output('UTF-8');
 
 require('vendor/autoload.php');
 
-//use App\LastFmConfig;
-
-use App\CountryNames;
-//(new LastFmConfig())->getApiKey();
-var_dump((new CountryNames())->getCountryByName('bangladesh'));
+//use App\CountryNames;
+//var_dump((new CountryNames())->getCountryByName('bdz'));

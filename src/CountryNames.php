@@ -511,7 +511,7 @@ class CountryNames
     {
         if (strlen($code) == 2)
         {
-            return $this->countryNames[$code];
+            return $this->countryNames[strtoupper($code)];
         }
 
         throw new \Exception('Country Code not found.');
@@ -530,6 +530,6 @@ class CountryNames
             return key($country);
         }
 
-        //throw new \Exception('Country name not found.');
+        throw new \Exception('Country name not found.');
     }
 }
