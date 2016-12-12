@@ -1,5 +1,5 @@
 <?php
-use App\CountryNames;
+use App\Util\CountryNames;
 
 class CountryNamesTest extends PHPUnit_Framework_TestCase
 {
