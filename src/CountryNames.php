@@ -1,8 +1,16 @@
 <?php
 namespace App;
 
+/**
+ * Class CountryNames
+ * @package App
+ * Contains list of Country Names and Country Codes as defined by the ISO 3166-1 country names standard
+ */
 class CountryNames
 {
+    /**
+     * @var array Country Codes as defined by the ISO 3166-1 country names standard
+     */
     private $countryNames = array(
     "AF"=>"Afghanistan",
     "AX"=>"\xc3\x85land Islands",
@@ -255,6 +263,9 @@ class CountryNames
     "ZW"=>"Zimbabwe"
     );
 
+    /**
+     * @var array Country Names as defined by the ISO 3166-1 country names standard
+     */
     private $countryCodes = array(
     "Afghanistan"=>"AF",
     "\xc3\x85land Islands"=>"AX",
@@ -507,9 +518,15 @@ class CountryNames
     "Zimbabwe"=>"ZW"
     );
 
+    /**
+     * @param $code
+     * @return string
+     * @throws \Exception
+     * Returns Country Names when matches the Country Code as defined by the ISO 3166-1 country names standard
+     */
     public function getCountryByCode($code)
     {
-        if (strlen($code) == 2)
+        if (strlen($code) == 2 && array_key_exists(strtoupper($code), $this->countryNames))
         {
             return $this->countryNames[strtoupper($code)];
         }
@@ -517,6 +534,12 @@ class CountryNames
         throw new \Exception('Country Code not found.');
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     * @throws \Exception
+     * Returns Country Names when partially matches the Country Name as defined by the ISO 3166-1 country names standard
+     */
     public function getCountryByName($name)
     {
         $country = array_filter($this->countryCodes, function($el) use ($name) {

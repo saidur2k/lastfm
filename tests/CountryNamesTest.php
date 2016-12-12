@@ -40,9 +40,18 @@ class CountryNamesTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException Exception
      */
-    public function test_invalid_country_code()
+    public function test_invalid_country_code_exceeding_two_characters()
     {
         $invalidCountryName = (new CountryNames())->getCountryByCode('invalidCountryCode');
     }
+
+    /**
+     * @expectedException Exception
+     */
+    public function test_invalid_country_code_equalling_two_characters()
+    {
+        $countryCode4 = (new CountryNames())->getCountryByCode('00');
+    }
+
 
 }
