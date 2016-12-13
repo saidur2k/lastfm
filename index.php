@@ -1,4 +1,6 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
 // Tell PHP that we're using UTF-8 strings until the end of the script
 mb_internal_encoding('UTF-8');
 
@@ -29,7 +31,7 @@ $config = new Config();
 Router::route('geo/gettopartist/:country/:page',
     function($segment, $method, $country, $page = 1) use ($config)
     {
-        return (new GetTopArtistsByGeography($config))->getJsonFor($country, $page);
+        return (new GetTopArtistsByGeography($config))->makeRequestBy($country, $page);
     }
 );
 

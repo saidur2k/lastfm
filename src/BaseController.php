@@ -17,15 +17,17 @@ abstract class BaseController
         $this->config = $config;
     }
 
-    abstract protected function makeRequestBy($selection, $page);
+    abstract public function makeRequestBy($selection, $page);
 
     protected function handle(MethodContract $method)
     {
         return new Request($this->config, $method);
     }
 
-    public function getJsonFor($selection, $page)
+    abstract protected function sanitizeArray($data);
+
+    public function toJSON($data)
     {
-        echo json_encode($this->handle($this->makeRequestBy($selection, $page))->getJSON());
+        echo json_encode($data);
     }
 }

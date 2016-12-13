@@ -29,7 +29,6 @@ class Request
 
     public function getJSON()
     {
-        $result = HttpRequest::get($this->getFullUrl());
-        return $result;
+        return HttpRequest::get($this->getFullUrl());
     }
 }

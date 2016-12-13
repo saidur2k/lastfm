@@ -6,8 +6,16 @@ use App\Api\Artist\GetTopTracks;
 
 class GetTopTracksByArtist extends BaseController
 {
-    protected function makeRequestBy($selection, $page)
+    public function makeRequestBy($selection, $page)
     {
-        return new GetTopTracks($selection, $page);
+        $setParams = new GetTopTracks($selection, $page);
+        $getRawData = $this->handle($setParams);
+        return $getRawData->sanitizeArray($getRawData);
+    }
+
+    protected  function sanitizeArray(Request $request)
+    {
+        array_reduce();
+        return var_dump($request->getJSON());
     }
 }
