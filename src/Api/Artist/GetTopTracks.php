@@ -3,8 +3,9 @@
 namespace App\Api\Artist;
 
 use App\Api\MethodAbstractClass;
+use App\Api\MethodContract;
 
-class GetTopTracks extends MethodAbstractClass
+class GetTopTracks extends MethodAbstractClass implements MethodContract
 {
     public function methodName()
     {

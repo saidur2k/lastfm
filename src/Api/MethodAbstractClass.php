@@ -28,9 +28,4 @@ abstract class MethodAbstractClass
      * @return string
      */
     abstract protected function methodName();
-
-    /**
-     * @return array
-     */
-    abstract public function parameters();
 }

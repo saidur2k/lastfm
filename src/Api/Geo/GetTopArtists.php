@@ -3,8 +3,9 @@
 namespace App\Api\Geo;
 
 use App\Api\MethodAbstractClass;
+use App\Api\MethodContract;
 
-class GetTopArtists extends MethodAbstractClass
+class GetTopArtists extends MethodAbstractClass implements MethodContract
 {
     public function methodName()
     {

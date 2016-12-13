@@ -12,7 +12,7 @@ class RequestGeoGetTopArtistsTest extends PHPUnit_Framework_TestCase
         $config = new Config();
         $getGetTopArtists = new GetTopArtists("Australia", "1");
         $request = new Request($config, $getGetTopArtists);
-        $this->assertTrue($request->get());
+        $this->assertTrue($request->getJSON());
     }
 
 //    /** @test */

@@ -18,3 +18,27 @@ require('vendor/autoload.php');
 //$getGetTopTracks = new GetTopTracks("a74b1b7f-71a5-4011-9441-d0b5e4122711", "1");
 //$request = new Request($config, $getGetTopTracks);
 //$request->get();
+
+use App\Router;
+use App\Api\Config;
+use App\GetTopArtistsByGeography;
+use App\GetTopTracksByArtist;
+
+$config = new Config();
+
+Router::route('geo/gettopartist/:country/:page',
+    function($segment, $method, $country, $page = 1) use ($config)
+    {
+        return (new GetTopArtistsByGeography($config))->getJsonFor($country, $page);
+    }
+);
+
+
+Router::route('artist/gettoptrack/:artist/:page',
+    function($segment, $method, $artist, $page = 1) use ($config)
+    {
+        return (new GetTopTracksByArtist($config))->getJsonFor($artist, $page);
+    }
+);
+
+Router::execute($_SERVER['REQUEST_URI']);

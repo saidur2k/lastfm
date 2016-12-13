@@ -27,10 +27,9 @@ class Request
                 . "&format=json";
     }
 
-    public function get()
+    public function getJSON()
     {
         $result = HttpRequest::get($this->getFullUrl());
-        var_dump($result);
-        return true;
+        return $result;
     }
 }

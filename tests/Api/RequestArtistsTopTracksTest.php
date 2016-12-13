@@ -12,7 +12,7 @@ class RequestArtistTopTracksTest extends PHPUnit_Framework_TestCase
         $config = new Config();
         $getGetTopTracks = new GetTopTracks("0790ba6c-e0b1-4891-b82f-b4db9a5a927f", "1");
         $request = new Request($config, $getGetTopTracks);
-        $this->assertTrue($request->get());
+        $this->assertNotEmpty($request->getJSON());
     }
 
 //    /** @test */
