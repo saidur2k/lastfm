@@ -16,6 +16,7 @@ class GetTopTracksTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('artist.getTopTracks', $this->getTopTracks->methodName());
     }
 
+    /** @test */
     public function parameters_return_is_consistent()
     {
         $this->assertEquals([

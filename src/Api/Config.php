@@ -27,9 +27,14 @@ class Config
      */
     private $baseUrl;
 
-    public function __construct()
+    public function __construct($ini_file_path = null)
     {
         $config = parse_ini_file('config.env');
+        if (isset($ini_file_path))
+        {
+            $config = parse_ini_file($ini_file_path);
+        }
+
         $this->apiKey = $config['APIKEY'];
         $this->secret = $config['SECRET'];
         $this->resultsPerPage = $config['RESULTS_PER_PAGE'];

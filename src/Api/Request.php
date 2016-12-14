@@ -3,7 +3,7 @@
 namespace App\Api;
 
 use App\Api\Config;
-use App\Api\MethodAbstractClass;
+use App\Api\MethodContract;
 use App\Util\Stringify;
 use App\Util\HttpRequest;
 use App\Util\Cache;
@@ -13,13 +13,13 @@ class Request
     private $config;
     private $method;
 
-    public function __construct(Config $config, MethodAbstractClass $method)
+    public function __construct(Config $config, MethodContract  $method)
     {
         $this->config = $config;
         $this->method = $method;
     }
 
-    protected function getFullUrl()
+    public function getFullUrl()
     {
         return    $this->config->getBaseUrl()
                 . "?" . Stringify::parameters($this->method->parameters())
