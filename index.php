@@ -15,8 +15,9 @@ use App\Router;
 use App\Api\Config;
 use App\GetTopArtistsByGeography;
 use App\GetTopTracksByArtist;
-//
-//$config = new Config();
+
+$config = new Config();
+echo $_SERVER['REQUEST_URI'];
 //
 //Router::route('geo/gettopartist/:country/:page',
 //    function($segment, $method, $country, $page = 1) use ($config)
