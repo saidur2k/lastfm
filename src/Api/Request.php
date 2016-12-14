@@ -6,6 +6,7 @@ use App\Api\Config;
 use App\Api\MethodAbstractClass;
 use App\Util\Stringify;
 use App\Util\HttpRequest;
+use App\Util\Cache;
 
 class Request
 {
@@ -29,6 +30,17 @@ class Request
 
     public function getJSON()
     {
-        return HttpRequest::get($this->getFullUrl());
+        $data = Cache::fetch($this->getFullUrl());
+
+        if (isset($data))
+        {
+            return serialize($data);
+        }
+
+        $fetchedData = HttpRequest::get($this->getFullUrl());
+
+        Cache::store($this->getFullUrl(), $fetchedData);
+
+        return $fetchedData;
     }
 }

@@ -8,6 +8,7 @@ use App\Model\Artist;
 
 class GetTopArtistsByGeography extends BaseController
 {
+    
     public function makeRequestBy($selection, $page)
     {
         $setParams = new GetTopArtists($selection, $page);

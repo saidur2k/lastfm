@@ -12,6 +12,7 @@ abstract class BaseController
     protected $selection;
     protected $page;
 
+
     public function __construct(Config $config)
     {
         $this->config = $config;
@@ -25,6 +26,7 @@ abstract class BaseController
     }
 
     abstract protected function sanitizeArray($data);
+
 
     public function toJSON($data)
     {

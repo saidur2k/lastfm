@@ -1,4 +1,5 @@
 .idea/
 *.env
 vendor/
+cache/
 composer.lock

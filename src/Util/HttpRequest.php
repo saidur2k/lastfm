@@ -6,6 +6,13 @@ class HttpRequest
 {
     public static function get($url)
     {
+
+
+        if (isset($data))
+        {
+            return $data;
+        }
+
         $curl = curl_init($url);
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -20,10 +27,13 @@ class HttpRequest
 
         curl_close($curl);
 
+
         $decoded = json_decode($curl_response , true);
         if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
             throw new \Exception('Error: ' . $decoded->response->errormessage);
         }
+
+
 
         return $decoded;
     }
