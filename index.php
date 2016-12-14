@@ -17,14 +17,13 @@ use App\GetTopArtistsByGeography;
 use App\GetTopTracksByArtist;
 
 $config = new Config();
-echo $_SERVER['REQUEST_URI'];
-//
-//Router::route('geo/gettopartist/:country/:page',
-//    function($segment, $method, $country, $page = 1) use ($config)
-//    {
-//        return (new GetTopArtistsByGeography($config))->makeRequestBy($country, $page);
-//    }
-//);
+
+Router::route('geo/gettopartist/:country/:page',
+    function($segment, $method, $country, $page = 1) use ($config)
+    {
+        return (new GetTopArtistsByGeography($config))->makeRequestBy($country, $page);
+    }
+);
 //
 //
 //Router::route('artist/gettoptrack/:artist/:page',
