@@ -9,20 +9,6 @@ mb_http_output('UTF-8');
 
 require('vendor/autoload.php');
 
-echo "test";
-//use App\Api\Request;
-//use App\Api\Geo\GetTopArtists;
-//use App\Api\Artist\GetTopTracks;
-//use App\Api\Config;
-//$config = new Config();
-////$getGetTopArtists = new GetTopArtists("Australia", "1");
-////$request = new Request($config, $getGetTopArtists);
-////$request->get();
-//
-//$getGetTopTracks = new GetTopTracks("a74b1b7f-71a5-4011-9441-d0b5e4122711", "1");
-//$request = new Request($config, $getGetTopTracks);
-//$request->get();
-
 use App\Router;
 use App\Api\Config;
 use App\GetTopArtistsByGeography;
