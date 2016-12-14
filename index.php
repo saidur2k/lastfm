@@ -33,5 +33,5 @@ Router::route('geo/gettopartist/:country/:page',
 //    }
 //);
 //
-//Router::execute($_SERVER['REQUEST_URI']);
-//
+Router::execute($_SERVER['REQUEST_URI']);
+
