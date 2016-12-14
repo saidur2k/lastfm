@@ -44,3 +44,5 @@ Router::route('artist/gettoptrack/:artist/:page',
 );
 
 Router::execute($_SERVER['REQUEST_URI']);
+
+echo "test";
