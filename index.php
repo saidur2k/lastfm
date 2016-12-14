@@ -8,6 +8,8 @@ mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 
 require('vendor/autoload.php');
+
+echo "test";
 //use App\Api\Request;
 //use App\Api\Geo\GetTopArtists;
 //use App\Api\Artist\GetTopTracks;
@@ -45,4 +47,3 @@ Router::route('artist/gettoptrack/:artist/:page',
 
 Router::execute($_SERVER['REQUEST_URI']);
 
-echo "test";
