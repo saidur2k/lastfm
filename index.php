@@ -39,7 +39,7 @@ Router::route('geo/gettopartist/:country/:page',
 Router::route('artist/gettoptrack/:artist/:page',
     function($segment, $method, $artist, $page = 1) use ($config)
     {
-        return (new GetTopTracksByArtist($config))->getJsonFor($artist, $page);
+        return (new GetTopTracksByArtist($config))->makeRequestBy($artist, $page);
     }
 );
 

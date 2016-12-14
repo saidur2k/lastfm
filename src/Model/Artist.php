@@ -60,7 +60,22 @@ class Artist
 
     public function isValid()
     {
-        return (!empty($this->name) && !empty($this->mbid) && !empty($this->image));
+        if (is_null($this->name))
+        {
+            return false;
+        }
+
+        if (is_null($this->mbid))
+        {
+            return false;
+        }
+
+        if (is_null($this->image))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public function toArray()

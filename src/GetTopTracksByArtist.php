@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Api\Artist\GetTopTracks;
+use App\Model\Artist;
+use App\Model\Track;
 
 class GetTopTracksByArtist extends BaseController
 {
@@ -10,12 +12,35 @@ class GetTopTracksByArtist extends BaseController
     {
         $setParams = new GetTopTracks($selection, $page);
         $getRawData = $this->handle($setParams);
-        return $getRawData->sanitizeArray($getRawData);
+        $cleanData = $this->sanitizeArray($getRawData->getJSON());
+        return $this->toJSON($cleanData);
     }
 
-    protected  function sanitizeArray(Request $request)
+    protected function sanitizeArray($data)
     {
-        array_reduce();
-        return var_dump($request->getJSON());
+        $newData = array_reduce($data, function($highCarry, $item) use($data)
+        {
+            $highCarry = array_reduce($item, function($midCarry, $lowItem)
+            {
+                $carry = array_reduce($lowItem, function($lowCarry, $lowItem2) {
+                    $newTrack = new Track();
+                    $newTrack->setFromApi($lowItem2);
+
+                    if ($newTrack->isValid())
+                    {
+                        $lowCarry[] = $newTrack->toArray();
+                    }
+                    return $lowCarry;
+                });
+
+                if (!empty($carry))
+                {
+                    $midCarry = $carry;
+                }
+                return $midCarry;
+            });
+            return $highCarry;
+        });
+        return $newData;
     }
 }
