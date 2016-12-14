@@ -1,6 +1,9 @@
 {
     "name": "saidur2k/lastfm",
     "description": "Last.FM API Consumer",
+    "require" : {
+        "php" : "^5.5 || ^7.0"
+    },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
     },
