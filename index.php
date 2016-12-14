@@ -9,12 +9,12 @@
 
 require('vendor/autoload.php');
 
-echo 1;
-//
-//use App\Router;
-//use App\Api\Config;
-//use App\GetTopArtistsByGeography;
-//use App\GetTopTracksByArtist;
+
+
+use App\Router;
+use App\Api\Config;
+use App\GetTopArtistsByGeography;
+use App\GetTopTracksByArtist;
 //
 //$config = new Config();
 //
